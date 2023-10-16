@@ -56,24 +56,6 @@ app.post("/mokepon/:jugadorId", (req, res) => {
     res.end()
 })
 
-app.post("/mokepon/:jugadorId/posicion", (req, res) => {
-    const jugadorId = req.params.jugadorId || ""
-    const x = req.body.x || 0
-    const y = req.body.y || 0
-
-    const indexJugador = jugadores.findIndex(jugador => jugadorId === jugador.id)
-
-    if (indexJugador >= 0){
-        jugadores[indexJugador].actualizarPosicion(x,y)
-    }
-
-    const enemigos = jugadores.filter(jugador => jugadorId !== jugador.id)
-
-    res.send({
-        enemigos
-    })
-})
-
 app.post("/mokepon/:jugadorId/ataques", (req, res) => {
     const jugadorId = req.params.jugadorId || ""
     const ataques = req.body.ataques || []
@@ -87,12 +69,32 @@ app.post("/mokepon/:jugadorId/ataques", (req, res) => {
     res.end()
 })
 
+
 app.get("/mokepon/:jugadorId/ataques", (req, res) => {
     const jugadorId = req.params.jugadorId || ""
     const jugador = jugadores.find(jugador => jugador.id === jugadorId)
 
     res.send({
         ataques: jugador.ataques || []
+    })
+})
+
+
+app.post("/mokepon/:jugadorId/posicion", (req, res) => {
+    const jugadorId = req.params.jugadorId || ""
+    const x = req.body.x || 0
+    const y = req.body.y || 0
+
+    const indexJugador = jugadores.findIndex(jugador => jugadorId === jugador.id) // devuelve un -1 si no existe, si existe devuelve el indice
+
+    if (indexJugador >= 0){
+        jugadores[indexJugador].actualizarPosicion(x,y)
+    }
+
+    const enemigos = jugadores.filter(jugador => jugadorId !== jugador.id)
+
+    res.send({
+        enemigos
     })
 })
 

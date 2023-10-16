@@ -19,11 +19,14 @@
         <button id="boton-mascota">Seleccionar</button>
     </section>
 
+
     <section id="ver-mapa">
         <h2 class="subtitulo">
             Mapa para llegar a no se donde
         </h2>
+
         <canvas id="mapa"></canvas>
+        
         <article class="comandos">
             <button  class="btn-comando" onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()">Izquireda</button>
             <button  class="btn-comando" onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
@@ -32,24 +35,21 @@
         </article>
     </section>
 
+
     <section id="seleccionar-ataque">
-
         <h1 class="title">MOKEPON!</h1>
-
         <h2 class="subtitulo">Elige tu ataque</h2>
        
         <div id="contenedorAtaques" class="elegir-ataque">
         </div>
 
         <div>
-
             <div id="mensajes">
                 <p id="resultado">Suerte!</p>
                 <section id="reiniciar">
-                    <button id="boton-reiniciar">Reiniciar</button>
+                    <button class="boton-reiniciar">Reiniciar</button>
                 </section>
             </div>
-        
         </div>
 
         <div class="combate">
@@ -58,13 +58,13 @@
                 <p id="mascota-jugador"></p>
                 <div id="ataque-del-jugador"></div>
             </div>
+
             <div class="info-enemigo">
                 <p id="vidas-enemigo">0</p>
                 <p id="mascota-enemigo"></p>
                 <div id="ataque-del-enemigo"></div>
             </div>
         </div>
-
     </section>
 
     <script src="./js/mokepon.js"></script>
